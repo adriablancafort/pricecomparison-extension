@@ -1,13 +1,15 @@
-import { mount } from 'svelte'
-import './app.css'
-import App from './App.svelte'
+import { mount } from 'svelte';
+import './app.css';
+import App from './App.svelte';
 
-const app = document.createElement('div');
-document.body.appendChild(app);
+const container = document.createElement('div');
+document.documentElement.appendChild(container);
 
-const style = document.createElement('link');
-style.rel = 'stylesheet';
-style.href = chrome.runtime.getURL('styles.css'); 
-app.appendChild(style);
+const shadowRoot = container.attachShadow({ mode: 'open' });
 
-mount(App, { target: app });
+const styles = document.createElement('link');
+styles.rel = 'stylesheet';
+styles.href = chrome.runtime.getURL('styles.css');
+shadowRoot.appendChild(styles);
+
+mount(App, { target: shadowRoot });
