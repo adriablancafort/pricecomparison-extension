@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Price Tracker",
+  "description": "Buy at the right place at the right time.",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["script.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
