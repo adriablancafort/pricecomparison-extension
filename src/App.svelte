@@ -7,40 +7,9 @@
 </script>
 
 {#if show}
-  <div class="popup">
-    <h3>Hello from the Popup!</h3>
+  <div class="fixed top-2.5 right-2.5 bg-white border border-gray-300 shadow-md p-4 rounded-lg z-50">
+    <h3 class="m-0 mb-2">Hello from the Popup!</h3>
     <p>This is a Svelte-powered popup injected into the page.</p>
-    <button onclick={closePopup}>Close</button>
+    <button class="bg-blue-500 text-white border-none py-2 px-4 rounded cursor-pointer hover:bg-blue-700" onclick={closePopup}>Close</button>
   </div>
 {/if}
-
-<style>
-  .popup {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    border-radius: 8px;
-    z-index: 10000;
-  }
-
-  h3 {
-    margin: 0 0 8px;
-  }
-
-  button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background: #0056b3;
-  }
-</style>
