@@ -1,5 +1,10 @@
 <script>
-  let show = $state(true);
+  import { getPrices } from './lib/prices.js';
+  import PriceCard from './lib/components/PriceCard.svelte';
+
+  const prices = getPrices();
+
+  let show = $state(prices.length > 0);
 
   const closePopup = () => {
     show = false;
@@ -7,10 +12,14 @@
 </script>
 
 {#if show}
-  <div class="popup">
-    <h3>Hello from the Popup!</h3>
-    <p>This is a Svelte-powered popup injected into the page.</p>
-    <button onclick={closePopup}>Close</button>
+  <div class="popup slide-in">
+    <h3>Better prices found!</h3>
+    <div>
+      {#each prices as price}
+        <PriceCard price={price} />
+      {/each}
+    </div>
+    <button class="close-button" onclick={closePopup}>x</button>
   </div>
 {/if}
 
@@ -25,16 +34,24 @@
     padding: 16px;
     border-radius: 8px;
     z-index: 999;
+    width: 250px;
   }
-  button {
-    background-color: #3b82f6;
-    color: white;
+
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  button:hover {
-    background-color: #3057d7;
+
+  .close-button:hover {
+    background-color: #d1d5db;
   }
 </style>
