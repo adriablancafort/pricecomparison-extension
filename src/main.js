@@ -1,8 +1,8 @@
 import { mount } from 'svelte';
 import './app.css';
-import App from './App.svelte';
+import App from './Popup.svelte';
 
-const container = document.createElement('div');
+const container = document.createElement('price-tracker');
 document.documentElement.appendChild(container);
 
 const shadowRoot = container.attachShadow({ mode: 'open' });
