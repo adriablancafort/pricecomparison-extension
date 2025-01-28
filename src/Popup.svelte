@@ -1,5 +1,5 @@
 <script>
-  import { getPrices } from './lib/prices.js';
+  import { getPrices, getAmazonPrice } from './lib/prices.js';
   import PriceCard from './lib/components/PriceCard.svelte';
 
   const prices = getPrices();
@@ -20,6 +20,7 @@
       {/each}
     </div>
     <button class="close-button" onclick={closePopup}>x</button>
+    <p>Amazon Price: {getAmazonPrice()}</p>
   </div>
 {/if}
 

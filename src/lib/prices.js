@@ -24,3 +24,10 @@ export function getPrices() {
 
   return prices;
 }
+
+export function getAmazonPrice() {
+  const priceWhole = document.querySelector('.a-price-whole')?.textContent || '';
+  const priceFraction = document.querySelector('.a-price-fraction')?.textContent || '';
+
+  return `${priceWhole}${priceFraction}`;
+}
