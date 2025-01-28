@@ -1,5 +1,9 @@
 :host {
     all: initial;
+    font-family: system-ui;
+    color: black;
 }
 
-@import "tailwindcss";
+* {
+    margin: 0;
+}
