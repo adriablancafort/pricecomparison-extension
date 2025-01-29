@@ -5,10 +5,6 @@
   const prices = getPrices();
 
   let show = $state(prices.length > 0);
-
-  const closePopup = () => {
-    show = false;
-  };
 </script>
 
 {#if show}
@@ -19,9 +15,13 @@
         <PriceCard price={price} />
       {/each}
     </div>
-    <button class="close-button" onclick={closePopup}>x</button>
+    <button class="close-button" onclick={() => show = false}>x</button>
     <p>Amazon Price: {getAmazonPrice()}</p>
   </div>
+{:else}
+  <button class="open-button" onclick={() => show = true}>
+    Open
+  </button>
 {/if}
 
 <style>
@@ -54,5 +54,18 @@
 
   .close-button:hover {
     background-color: #d1d5db;
+  }
+
+  .open-button {
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    border-radius: 8px;
+    z-index: 999;
+    cursor: pointer;
   }
 </style>
