@@ -29,7 +29,8 @@
     position: fixed;
     top: 10px;
     right: 10px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     border: 1px solid #d1d5db;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
