@@ -1,20 +1,29 @@
 <script>
-  import { getPrices } from '$lib/prices.js';
+  import { fetchPrices } from '$lib/prices.js';
   import PriceCard from '$lib/components/PriceCard.svelte';
 
-  const prices = getPrices();
-
-  let show = $state(prices.length > 0);
+  let show = $state(true);
 </script>
 
 {#if show}
   <div class="popup slide-in">
-    <h3>Better prices found!</h3>
-    <div>
-      {#each prices as price}
-        <PriceCard price={price} />
-      {/each}
-    </div>
+    {#await fetchPrices()}
+      <p>Loading prices...</p>
+    {:then prices}
+      {#if prices && prices.length > 0}
+        <h3>Better prices found!</h3>
+        <div>
+          {#each prices as price, index}
+            <PriceCard {price} />
+          {/each}
+        </div>
+      {:else}
+        <h3>No better prices found.</h3>
+      {/if}
+    {:catch error}
+      <h3>Error loading prices</h3>
+      <p>{error.message}</p>
+    {/await}
     <button class="close-button" onclick={() => show = false}>x</button>
   </div>
 {:else}

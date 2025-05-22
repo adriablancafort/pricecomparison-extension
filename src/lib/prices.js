@@ -1,22 +1,11 @@
-export function getPrices() {
-  let currentLink = window.location.href;
-  let prices = [
-    {
-      price: "$19.99",
-      link: currentLink,
-      store: "Store 1"
-    },
-    {
-      price: "$24.99",
-      link: currentLink,
-      store: "Store 2"
-    },
-    {
-      price: "$17.99",
-      link: currentLink,
-      store: "Store 3"
-    }
-  ];
+export async function fetchPrices() {
+  const apiUrl = `${import.meta.env.VITE_API_URL}/prices`;
 
+  const response = await fetch(apiUrl);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  
+  const prices = await response.json();
   return prices;
 }
