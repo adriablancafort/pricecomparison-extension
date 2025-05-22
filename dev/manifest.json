@@ -10,8 +10,5 @@
       "matches": ["<all_urls>"],
       "js": ["script.js"]
     }
-  ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' http://localhost:5173; connect-src 'self' http://localhost:5173 ws://localhost:5173; object-src 'self';"
-  }
+  ]
 }
