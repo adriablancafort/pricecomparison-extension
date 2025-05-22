@@ -35,7 +35,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
     border-radius: 8px;
-    z-index: 999;
+    z-index: 2147483647;
     width: 250px;
   }
 
