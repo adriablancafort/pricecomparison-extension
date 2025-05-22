@@ -1,7 +1,14 @@
 export async function fetchPrices() {
-  const apiUrl = `${import.meta.env.VITE_API_URL}/prices`;
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const currentUrl = window.location.href;
 
-  const response = await fetch(apiUrl);
+  const response = await fetch(`${apiUrl}/v1/prices`, {
+    method: 'GET',
+    headers: {
+      'X-Product-URL': currentUrl
+    }
+  });
+
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
