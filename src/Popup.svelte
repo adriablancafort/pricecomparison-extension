@@ -1,6 +1,6 @@
 <script>
-  import { getPrices, getAmazonPrice } from './lib/prices.js';
-  import PriceCard from './lib/components/PriceCard.svelte';
+  import { getPrices, getAmazonPrice } from '$lib/prices.js';
+  import PriceCard from '$lib/components/PriceCard.svelte';
 
   const prices = getPrices();
 
