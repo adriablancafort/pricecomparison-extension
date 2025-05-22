@@ -8,13 +8,17 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["script.js"]
+      "js": ["content.js"]
     }
   ],
   "web_accessible_resources": [
     {
       "matches": ["<all_urls>"],
       "resources": ["styles.css"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "resources": ["script.js"]
     }
   ]
 }
