@@ -4,13 +4,17 @@
     color: black;
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
-}
-
-a {
-    text-decoration: none;
+    padding: 0;
+    border: 0;
+    font: inherit;
     color: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
 }
 
 .slide-in {
