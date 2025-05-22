@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Price Tracker",
+  "name": "Price Tracker Dev",
   "description": "Buy at the right place at the right time.",
   "version": "1.0",
   "permissions": ["activeTab", "scripting"],
@@ -11,10 +11,7 @@
       "js": ["script.js"]
     }
   ],
-  "web_accessible_resources": [
-    {
-      "matches": ["<all_urls>"],
-      "resources": ["styles.css"]
-    }
-  ]
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' http://localhost:5173; connect-src 'self' http://localhost:5173 ws://localhost:5173; object-src 'self';"
+  }
 }
