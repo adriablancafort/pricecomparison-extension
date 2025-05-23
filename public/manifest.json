@@ -3,8 +3,7 @@
   "name": "Price Tracker",
   "description": "Buy at the right place at the right time.",
   "version": "1.0",
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["https://api.pricetracker.fyi/*"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
