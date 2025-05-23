@@ -1,4 +1,4 @@
-export async function fetchPrices() {
+export async function getPrices() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const currentUrl = window.location.href;
 

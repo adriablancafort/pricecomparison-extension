@@ -1,5 +1,5 @@
 <script>
-  import { fetchPrices } from '$lib/prices.js';
+  import { getPrices } from '$lib/api.js';
   import PriceCard from '$lib/components/PriceCard.svelte';
 
   let show = $state(true);
@@ -7,7 +7,7 @@
 
 {#if show}
   <div class="popup slide-in">
-    {#await fetchPrices()}
+    {#await getPrices()}
       <p>Loading prices...</p>
     {:then prices}
       {#if prices && prices.length > 0}
