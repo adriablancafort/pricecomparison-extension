@@ -1,8 +1,13 @@
 {
-  "manifest_version": 3,
-  "name": "Price Tracker",
-  "description": "Compare prices of other websites and get the best deal.",
+  "name": "Price Comparison - Find Lower Prices Instantly",
+  "description": "Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!",
   "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+  },
   "content_scripts": [
     {
       "matches": [

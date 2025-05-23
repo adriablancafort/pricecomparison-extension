@@ -1,6 +1,6 @@
-# Price Tracker
+# Price Comparison - Find Lower Prices Instantly
 
-Compare prices of other websites and get the best deal.
+Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!
 
 ## Features
 
@@ -19,7 +19,7 @@ Compare prices of other websites and get the best deal.
 1. Clone or download this repository
 2. Navigate to the project directory:
    ```bash
-   cd pricetracker-extension
+   cd pricecomparison-extension
    ```
 3. Install dependencies:
    ```bash
@@ -58,7 +58,7 @@ Compare prices of other websites and get the best deal.
 
 ## Loading the Extension in Chrome
 
-1. Open Chrome and navigate to `chrome://extensions/`
+1. Open Chrome and navigate to `chrome://extensions`
 
 2. Toggle **"Developer mode"** to ON in the top-right corner
 
