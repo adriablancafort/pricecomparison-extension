@@ -3,10 +3,6 @@
   "name": "Price Tracker Dev",
   "description": "Buy at the right place at the right time.",
   "version": "1.0",
-  "host_permissions": [
-    "http://localhost:8000/*",
-    "https://api.pricetracker.fyi/*"
-  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
