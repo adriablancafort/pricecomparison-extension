@@ -25,7 +25,7 @@ Compare prices of other websites and get the best deal.
    ```bash
    npm install
    ```
-4. **Create environment file**: Create a `.env` file at the root of the project and add your API endpoint:
+4. Create a `.env` file at the root of the project and add your API endpoint:
    ```env
    VITE_API_URL=http://localhost:8000
    ```
@@ -54,14 +54,14 @@ Compare prices of other websites and get the best deal.
 
 3. Load the `dist/` folder as an unpacked extension in Chrome
 
-## Loading Extension in Chrome
+4. Visit any website to test the extension
 
-1. Open Chrome and navigate to [chrome://extensions/](chrome://extensions/)
+## Loading the Extension in Chrome
+
+1. Open Chrome and navigate to `chrome://extensions/`
 
 2. Toggle **"Developer mode"** to ON in the top-right corner
 
 3. Click **"Load unpacked"**
 
 4. Select the folder where you have your extension bundle. In this case `dev/` for development and `dist/` for production
-
-5. Navigate to any website - the price tracker popup should automatically appear
