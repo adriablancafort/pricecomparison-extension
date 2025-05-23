@@ -5,7 +5,11 @@
   "version": "1.0",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "https://www.amazon.es/*",
+        "https://www.mediamarkt.es/*",
+        "https://www.pccomponentes.com/*"
+      ],
       "js": ["script.js"]
     }
   ],
