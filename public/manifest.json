@@ -11,9 +11,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.amazon.es/*",
         "https://www.mediamarkt.es/*",
-        "https://www.pccomponentes.com/*"
+        "https://www.tradeinn.com/*"
       ],
       "js": ["script.js"]
     }
