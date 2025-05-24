@@ -1,35 +1,21 @@
 <script>
-  import { getPrices } from '$lib/api.js';
   import PriceCard from '$lib/components/PriceCard.svelte';
+
+  let { data } = $props();
 
   let show = $state(true);
 </script>
 
-{#if show}
+{#if show && data.prices.length > 0}
   <div class="popup slide-in">
-    {#await getPrices()}
-      <p>Loading prices...</p>
-    {:then prices}
-      {#if prices && prices.length > 0}
-        <h3>Better prices found!</h3>
-        <div>
-          {#each prices as price, index}
-            <PriceCard {price} />
-          {/each}
-        </div>
-      {:else}
-        <h3>No better prices found.</h3>
-      {/if}
-    {:catch error}
-      <h3>Error loading prices</h3>
-      <p>{error.message}</p>
-    {/await}
+    <h3>Better prices found!</h3>
+    <div class="prices-container">
+      {#each data.prices as price}
+        <PriceCard {price} />
+      {/each}
+    </div>
     <button class="close-button" onclick={() => show = false}>x</button>
   </div>
-{:else}
-  <button class="open-button" onclick={() => show = true}>
-    Open
-  </button>
 {/if}
 
 <style>
@@ -63,18 +49,5 @@
 
   .close-button:hover {
     background-color: #d1d5db;
-  }
-
-  .open-button {
-    position: fixed;
-    top: 50px;
-    right: 0px;
-    background-color: #f9fafb;
-    border: 1px solid #d1d5db;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    border-radius: 8px;
-    z-index: 2147483647;
-    cursor: pointer;
   }
 </style>

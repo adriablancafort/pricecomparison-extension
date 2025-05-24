@@ -1,6 +1,5 @@
-export async function getPrices() {
+export async function getPrices(currentUrl) {
   const apiUrl = import.meta.env.VITE_API_URL;
-  const currentUrl = window.location.href;
 
   const response = await fetch(`${apiUrl}/v1/prices`, {
     method: 'GET',
@@ -14,5 +13,7 @@ export async function getPrices() {
   }
   
   const prices = await response.json();
-  return prices;
+  return {
+    prices: prices
+  };
 }
