@@ -1,9 +1,11 @@
 import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
+import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
 
 const extractors = {
   'www.mediamarkt.es': www_mediamarkt_es,
   'www.tradeinn.com': www_tradeinn_com,
+  'www.pccomponentes.com': www_pccomponentes_com
 };
 
 export async function getPrices(currentUrl) {
@@ -33,7 +35,7 @@ async function fetchPrices(productData) {
 
     const data = await response.json(); 
     return data;
-  } catch (error) {
+  } catch (e) {
     return null; // error fetching prices
   }
 }

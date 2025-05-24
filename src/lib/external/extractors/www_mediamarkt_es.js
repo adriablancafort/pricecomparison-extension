@@ -9,17 +9,15 @@ export function www_mediamarkt_es(url) {
                 const product = data.object;
                 
                 return {
-                    url: url,
+                    url: product.url,
                     title: product.name,
                     price: product.offers?.price
                 };
             }
         } catch (e) {
-            // Skip invalid JSON
             continue;
         }
     }
     
-    // No product data found
     return null;
 }
