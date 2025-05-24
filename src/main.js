@@ -5,23 +5,30 @@ import { getPrices } from "$lib/external/main.js"; // in the future from CDN
 // const module = await import(CDN_URL);
 // const data = await module.getPrices(currentUrl);
 
-const container = document.createElement('price-comparison');
-document.documentElement.appendChild(container);
+async function init(data) {
+  // Clear previous instance if any
+  document.querySelector('price-comparison')?.remove();
 
-const shadowRoot = container.attachShadow({ mode: 'open' });
+  const container = document.createElement('price-comparison');
+  document.documentElement.appendChild(container);
 
-if (import.meta.env.PROD) {
-  const styles = document.createElement('link');
-  styles.rel = 'stylesheet';
-  styles.href = chrome.runtime.getURL('styles.css');
-  shadowRoot.appendChild(styles);
-}
+  const shadowRoot = container.attachShadow({ mode: 'open' });
 
-if (import.meta.env.DEV) {
-  const styles = document.createElement('style');
-  const css = await import('./app.css?raw');
-  styles.textContent = css.default;
-  shadowRoot.appendChild(styles);
+  if (import.meta.env.PROD) {
+    const styles = document.createElement('link');
+    styles.rel = 'stylesheet';
+    styles.href = chrome.runtime.getURL('styles.css');
+    shadowRoot.appendChild(styles);
+  }
+
+  if (import.meta.env.DEV) {
+    const styles = document.createElement('style');
+    const css = await import('./app.css?raw');
+    styles.textContent = css.default;
+    shadowRoot.appendChild(styles);
+  }
+
+  mount(Popup, { target: shadowRoot, props: { data } });
 }
 
 let currentUrl;
@@ -33,9 +40,7 @@ const observer = new MutationObserver(async () => {
 
     // fetch the prices data and mount the app
     const data = await getPrices(currentUrl);
-    if (data) {
-      mount(Popup, { target: shadowRoot, props: { data } });
-    }
+    if (data) { init(data); }
   }
 });
 
