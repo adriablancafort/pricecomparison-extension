@@ -1,7 +1,9 @@
 import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
+import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 
 const extractors = {
   'www.mediamarkt.es': www_mediamarkt_es,
+  'www.tradeinn.com': www_tradeinn_com,
 };
 
 export async function getPrices(currentUrl) {
