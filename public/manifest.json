@@ -12,7 +12,8 @@
     {
       "matches": [
         "https://www.mediamarkt.es/*",
-        "https://www.tradeinn.com/*"
+        "https://www.tradeinn.com/*",
+        "https://www.pccomponentes.com/*"
       ],
       "js": ["script.js"]
     }
