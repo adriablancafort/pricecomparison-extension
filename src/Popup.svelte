@@ -1,12 +1,22 @@
 <script>
-  import PriceCard from '$lib/components/PriceCard.svelte';
+  import PriceCard from "$lib/components/PriceCard.svelte";
+  import PriceButton from "$lib/components/PriceButton.svelte";
 
   let { data } = $props();
-
-  let show = $state(true);
+  let showPopup = $state(false);
+  let showButton = $state(true);
 </script>
 
-{#if show && data.prices.length > 0}
+{#if showButton}
+  <PriceButton
+    onClick={() => {
+      showButton = false;
+      showPopup = true;
+    }}
+  />
+{/if}
+
+{#if showPopup && data.prices.length > 0}
   <div class="popup slide-in">
     <h3>Better prices found!</h3>
     <div class="prices-container">
@@ -14,7 +24,13 @@
         <PriceCard {price} />
       {/each}
     </div>
-    <button class="close-button" onclick={() => show = false}>x</button>
+    <button
+      class="close-button"
+      on:click={() => {
+        showPopup = false;
+        showButton = true;
+      }}>x</button
+    >
   </div>
 {/if}
 
