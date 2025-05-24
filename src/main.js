@@ -6,7 +6,7 @@ import { getPrices } from "$lib/external/main.js"; // in the future from CDN
 // const data = await module.getPrices(currentUrl);
 
 async function init(data) {
-  // Clear previous instance if any
+  // clear previous instance if any
   document.querySelector('price-comparison')?.remove();
 
   const container = document.createElement('price-comparison');
@@ -40,7 +40,7 @@ const observer = new MutationObserver(async () => {
 
     // fetch the prices data and mount the app
     const data = await getPrices(currentUrl);
-    if (data) { init(data); }
+    if (data) init(data);
   }
 });
 

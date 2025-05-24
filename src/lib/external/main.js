@@ -1,19 +1,37 @@
+import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
+
+const extractors = {
+  'www.mediamarkt.es': www_mediamarkt_es,
+};
+
 export async function getPrices(currentUrl) {
-  const apiUrl = import.meta.env.VITE_API_URL;
-
-  const response = await fetch(`${apiUrl}/v1/prices`, {
-    method: 'GET',
-    headers: {
-      'X-Product-URL': currentUrl
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
+  const hostname = new URL(currentUrl).hostname;
+  const extractor = extractors[hostname];
   
-  const prices = await response.json();
-  return {
-    prices: prices
-  };
+  if (!extractor) return null; // retailer not supported
+
+  const productData = extractor(currentUrl);
+  
+  if (!productData) return null; // not a product page
+
+  const data = await fetchPrices(productData);
+  return data;
+}
+
+async function fetchPrices(productData) {
+  try {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    const response = await fetch(`${apiUrl}/v1/prices`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(productData)
+    });
+    
+    if (!response.ok) return null; // invalid response
+
+    const data = await response.json(); 
+    return data;
+  } catch (error) {
+    return null; // error fetching prices
+  }
 }
