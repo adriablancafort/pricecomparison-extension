@@ -10,9 +10,8 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
+    font-family: inherit;
     color: inherit;
-    vertical-align: baseline;
     background: transparent;
     text-decoration: none;
 }

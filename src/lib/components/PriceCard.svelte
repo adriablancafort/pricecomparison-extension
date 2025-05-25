@@ -23,7 +23,8 @@
     margin-left: 8px;
     margin-right: 12px;
     font-size: 15px;
-    color: #555555;
+    color: #555555 !important;
+    line-height: 1.3;
     display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;

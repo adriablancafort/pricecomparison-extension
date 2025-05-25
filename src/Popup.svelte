@@ -34,7 +34,7 @@
     position: fixed;
     bottom: 12px;
     right: 12px;
-    background-color: #fff;
+    background-color: white;
     box-shadow: 0 0px 6px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     z-index: 2147483647;
