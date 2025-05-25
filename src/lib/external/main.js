@@ -1,6 +1,7 @@
 import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
+import { generic } from './extractors/generic.js';
 
 const extractors = {
   'www.mediamarkt.es': www_mediamarkt_es,
@@ -10,7 +11,7 @@ const extractors = {
 
 export async function getPrices(currentUrl) {
   const hostname = new URL(currentUrl).hostname;
-  const extractor = extractors[hostname];
+  const extractor = extractors[hostname] || generic;
   
   if (!extractor) return null; // retailer not supported
 
@@ -32,7 +33,7 @@ async function fetchPrices(productData) {
     
     if (!response.ok) return null; // invalid response
 
-    return await response.json(); 
+    return await response.json();
   } catch (e) {
     return null; // error fetching prices
   }
