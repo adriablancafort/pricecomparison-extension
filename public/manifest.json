@@ -17,11 +17,7 @@
   "web_accessible_resources": [
     {
       "matches": ["<all_urls>"],
-      "resources": ["styles.css"]
-    },
-    {
-      "matches": ["<all_urls>"],
-      "resources": ["images/icon.png"]
+      "resources": ["styles.css", "images/*", "fonts/*"]
     }
   ]
 }

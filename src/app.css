@@ -1,6 +1,6 @@
 :host {
     all: initial;
-    font-family: system-ui !important;
+    font-family: 'Inter', system-ui !important;
     color: black;
 }
 

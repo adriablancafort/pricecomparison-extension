@@ -16,6 +16,12 @@ async function mountShadowRoot() {
     styles.rel = 'stylesheet';
     styles.href = chrome.runtime.getURL('styles.css');
     shadowRoot.appendChild(styles);
+
+    // load fonts
+    const regular = chrome.runtime.getURL('fonts/Inter-Regular.woff2');
+    const bold = chrome.runtime.getURL('fonts/Inter-SemiBold.woff2');
+    document.fonts.add(new FontFace('Inter', `url(${regular})`, { weight: '400' }));
+    document.fonts.add(new FontFace('Inter', `url(${bold})`, { weight: '700' }));
   } else {
     const styles = document.createElement('style');
     const css = await import('./app.css?raw');
