@@ -25,7 +25,7 @@ export function www_amazon_es(url) {
             title: title,
             price: price,
 
-            // extract: implement missing fields
+            // todo: implement extract missing fields
             currency: null,
             sku: null,
             brand: null,

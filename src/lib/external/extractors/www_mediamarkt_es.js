@@ -18,8 +18,8 @@ export function www_mediamarkt_es(url) {
                     brand: product.brand?.name,
                     category: null, // Not available in MediaMarkt's schema
                     image: Array.isArray(product.image) ? product.image[0] : product.image,
-                    condition: offers?.itemCondition,
-                    availability: offers?.availability,
+                    condition: offers?.itemCondition?.replace('http://schema.org/', '') || null,
+                    availability: offers?.availability?.replace('http://schema.org/', '') || null,
                     rating: product.aggregateRating?.ratingValue ? parseFloat(product.aggregateRating.ratingValue) : null,
                     reviewCount: product.aggregateRating?.ratingCount ? parseInt(product.aggregateRating.ratingCount) : null,
                     seller: offers?.offeredBy || 'MediaMarkt',
