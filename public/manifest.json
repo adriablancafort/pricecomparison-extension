@@ -10,11 +10,7 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://www.mediamarkt.es/*",
-        "https://www.tradeinn.com/*",
-        "https://www.pccomponentes.com/*"
-      ],
+      "matches": ["<all_urls>"],
       "js": ["script.js"]
     }
   ],
