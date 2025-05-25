@@ -16,7 +16,7 @@ export function www_tradeinn_com(url) {
                     sku: data.sku,
                     brand: data.brand?.name,
                     category: data.category,
-                    image: Array.isArray(data.image) ? data.image[0] : data.image,
+                    image: 'https://www.tradeinn.com' + (Array.isArray(data.image) ? data.image[0] : data.image),
                     condition: data.itemCondition?.replace('https://schema.org/', '') || null,
                     availability: offer.availability?.replace('https://schema.org/', '') || null,
                     rating: data.aggregateRating?.ratingValue ? parseFloat(data.aggregateRating.ratingValue) : null,
