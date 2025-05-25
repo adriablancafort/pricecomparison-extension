@@ -12,7 +12,7 @@ export function generic(url) {
                     url: offers.url || url,
                     title: data.name,
                     price: parseFloat(offers.price),
-                    currency: offers.priceCurrency || 'EUR',
+                    currency: offers.priceCurrency,
                     sku: data.sku || data.mpn,
                     brand: data.brand?.name,
                     category: data.category,
