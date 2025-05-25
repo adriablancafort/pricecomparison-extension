@@ -23,7 +23,20 @@ export function www_amazon_es(url) {
         return {
             url: cleanUrl,
             title: title,
-            price: price
+            price: price,
+
+            // extract: implement missing fields
+            currency: null,
+            sku: null,
+            brand: null,
+            category: null,
+            image: null,
+            condition: null,
+            availability: null,
+            rating: null,
+            reviewCount: null,
+            seller: null,
+            originalPrice: null
         };
     } catch (e) {
         return null;

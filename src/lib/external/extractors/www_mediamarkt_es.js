@@ -7,11 +7,23 @@ export function www_mediamarkt_es(url) {
             
             if (data['@type'] === 'BuyAction' && data.object && data.object['@type'] === 'Product') {
                 const product = data.object;
+                const offers = product.offers;
                 
                 return {
                     url: product.url,
                     title: product.name,
-                    price: product.offers?.price
+                    price: parseFloat(offers?.price),
+                    currency: offers?.priceCurrency,
+                    sku: product.sku || product.gtin13,
+                    brand: product.brand?.name,
+                    category: null, // Not available in MediaMarkt's schema
+                    image: Array.isArray(product.image) ? product.image[0] : product.image,
+                    condition: offers?.itemCondition,
+                    availability: offers?.availability,
+                    rating: product.aggregateRating?.ratingValue ? parseFloat(product.aggregateRating.ratingValue) : null,
+                    reviewCount: product.aggregateRating?.ratingCount ? parseInt(product.aggregateRating.ratingCount) : null,
+                    seller: offers?.offeredBy || 'MediaMarkt',
+                    originalPrice: offers?.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
                 };
             }
         } catch (e) {

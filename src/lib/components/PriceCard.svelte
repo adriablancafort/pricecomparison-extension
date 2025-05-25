@@ -4,7 +4,7 @@
 
 <a href={price.url} target="_blank">
     <div class="price-card">
-        <img src={price.retailer_logo_url} alt="Icon" width="24" height="24" />
+        <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
         <span class="title">{price.title}</span>
         <span class="price">{price.price}</span>
     </div>

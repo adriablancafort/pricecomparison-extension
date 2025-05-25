@@ -11,7 +11,18 @@ export function www_tradeinn_com(url) {
                 return {
                     url: data.url,
                     title: data.name,
-                    price: parseFloat(offer.price)
+                    price: parseFloat(offer.price),
+                    currency: offer.priceCurrency,
+                    sku: data.sku,
+                    brand: data.brand?.name,
+                    category: data.category,
+                    image: Array.isArray(data.image) ? data.image[0] : data.image,
+                    condition: data.itemCondition,
+                    availability: offer.availability,
+                    rating: data.aggregateRating?.ratingValue ? parseFloat(data.aggregateRating.ratingValue) : null,
+                    reviewCount: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
+                    seller: offer.offeredBy,
+                    originalPrice: offer.priceSpecification?.price ? parseFloat(offer.priceSpecification.price) : null
                 };
             }
         } catch (e) {
