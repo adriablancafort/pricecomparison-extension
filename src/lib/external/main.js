@@ -18,8 +18,7 @@ export async function getPrices(currentUrl) {
   
   if (!productData) return null; // not a product page
 
-  const data = await fetchPrices(productData);
-  return data;
+  return await fetchPrices(productData);
 }
 
 async function fetchPrices(productData) {
@@ -33,8 +32,7 @@ async function fetchPrices(productData) {
     
     if (!response.ok) return null; // invalid response
 
-    const data = await response.json(); 
-    return data;
+    return await response.json(); 
   } catch (e) {
     return null; // error fetching prices
   }

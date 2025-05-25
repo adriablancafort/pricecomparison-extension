@@ -4,50 +4,62 @@
   let { data } = $props();
 
   let show = $state(true);
+  
+  let logoUrl = chrome?.runtime?.getURL ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
 </script>
 
 {#if show && data.prices.length > 0}
   <div class="popup slide-in">
-    <h3>Better prices found!</h3>
-    <div class="prices-container">
+    <div class="top">
+      <img src={logoUrl} alt="Logo" width="24" height="24" />
+      <span class="name">Price Comparison</span>
+
+      <button class="close-button" onclick={() => show = false} aria-label="Close popup">
+        <svg width="20px" height="20px" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#808080" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="prices">
       {#each data.prices as price}
         <PriceCard {price} />
       {/each}
     </div>
-    <button class="close-button" onclick={() => show = false}>x</button>
   </div>
 {/if}
 
 <style>
   .popup {
     position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid #d1d5db;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    bottom: 12px;
+    right: 12px;
+    background-color: #fff;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     z-index: 2147483647;
-    width: 250px;
+    width: 280px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .name {
+    margin-left: 8px;
+    font-weight: 700;
+    font-size: 18px;
   }
 
   .close-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: auto;
   }
 
-  .close-button:hover {
-    background-color: #d1d5db;
+  .prices {
+    padding: 6px 0;
   }
 </style>

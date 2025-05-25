@@ -2,23 +2,36 @@
     let { price } = $props();
 </script>
 
-<a href={price.link} target="_blank">
+<a href={price.url} target="_blank">
     <div class="price-card">
-        <p>{price.store} - {price.price}</p>
+        <img src={price.thumbnail_url} alt="Icon" width="44" height="44" />
+        <span class="title">{price.retailer_name}</span>
+        <span class="price">{price.price}</span>
     </div>
 </a>
 
 <style>
   .price-card {
     list-style: none;
-    padding: 8px;
-    margin: 8px 0;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    padding: 6px 16px 6px 12px;
+    display: flex;
+    align-items: center;
   }
 
-  .price-card:hover {
-    background-color: #f3f4f6;
+  .title {
+    margin-left: 8px;
+    color: #555555;
+    font-size: 16px;
+  }
+
+  .price-card:hover .title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  .price {
+    margin-left: auto;
+    font-size: 16px;
   }
 </style>
