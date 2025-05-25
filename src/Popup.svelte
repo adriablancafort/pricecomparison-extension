@@ -5,14 +5,14 @@
 
   let show = $state(true);
   
-  let logoUrl = chrome?.runtime?.getURL ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
+  let logoUrl = chrome.runtime.getURL('images/icon.png');
 </script>
 
 {#if show && data.prices.length > 0}
   <div class="popup slide-in">
     <div class="top">
       <img src={logoUrl} alt="Logo" width="24" height="24" />
-      <span class="name">Price Comparison</span>
+      <span class="name">Better prices found!</span>
 
       <button class="close-button" onclick={() => show = false} aria-label="Close popup">
         <svg width="20px" height="20px" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
