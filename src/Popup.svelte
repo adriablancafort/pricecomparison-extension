@@ -5,7 +5,7 @@
 
   let show = $state(true);
   
-  let logoUrl = chrome.runtime.getURL('images/icon.png');
+  let logoUrl = import.meta.env.PROD ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
 </script>
 
 {#if show && data.prices.length > 0}

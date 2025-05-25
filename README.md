@@ -25,9 +25,10 @@ Save Time and Money — Instantly Compare Prices and Find Better Deals from Othe
    ```bash
    npm install
    ```
-4. Create a `.env` file at the root of the project and add your API endpoint:
+4. Create a `.env` file at the root of the project and add the following environment variables:
    ```env
-   VITE_API_URL=http://localhost:8000
+   VITE_API_URL=
+   VITE_ICON_URL=
    ```
 
 ### Development
