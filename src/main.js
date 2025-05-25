@@ -24,6 +24,23 @@ async function mountShadowRoot() {
   }
 }
 
+async function handleNavigation() {
+  // destroy previous popup instance
+  if (popup) {
+    unmount(popup);
+    popup = null;
+  }
+
+  setTimeout(async () => {
+    // fetch data and mount popup
+    const data = await getPrices(currentUrl);
+    if (data) {
+      if (!shadowRoot) await mountShadowRoot();
+      popup = mount(Popup, { target: shadowRoot, props: { data } });
+    }
+  }, 10);
+}
+
 let shadowRoot;
 let popup;
 let currentUrl;
@@ -32,20 +49,7 @@ const observer = new MutationObserver(async () => {
   const newUrl = window.location.href;
   if (newUrl !== currentUrl) {
     currentUrl = newUrl;
-
-    // wait for DOM to update
-    setTimeout(async () => {
-
-      // destroy previous popup instance
-      if (popup) unmount(popup);
-
-      // fetch data and mount popup
-      const data = await getPrices(currentUrl);
-      if (data) {
-        if (!shadowRoot) await mountShadowRoot();
-        popup = mount(Popup, { target: shadowRoot, props: { data } });
-      }
-    }, 10);
+    handleNavigation()
   }
 });
 
