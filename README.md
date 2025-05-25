@@ -2,6 +2,8 @@
 
 Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!
 
+<img width="1461" alt="Screenshot 2025-05-26 at 01 05 23" src="https://github.com/user-attachments/assets/148350d0-ae16-4ae0-b4a8-7b9feb6f67ba" />
+
 ## Features
 
 - **Hot Module Replacement (HMR)** in development mode with Vite
