@@ -4,8 +4,8 @@
 
 <a href={price.url} target="_blank">
     <div class="price-card">
-        <img src={price.thumbnail_url} alt="Icon" width="44" height="44" />
-        <span class="title">{price.retailer_name}</span>
+        <img src={price.retailer_logo_url} alt="Icon" width="24" height="24" />
+        <span class="title">{price.title}</span>
         <span class="price">{price.price}</span>
     </div>
 </a>
@@ -14,15 +14,22 @@
   .price-card {
     list-style: none;
     cursor: pointer;
-    padding: 6px 16px 6px 12px;
+    padding: 8px 16px 8px 12px;
     display: flex;
     align-items: center;
   }
 
   .title {
     margin-left: 8px;
+    margin-right: 12px;
+    font-size: 15px;
     color: #555555;
-    font-size: 16px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .price-card:hover .title {

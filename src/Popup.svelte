@@ -36,7 +36,7 @@
     right: 12px;
     background-color: #fff;
     box-shadow: 0 0px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
+    border-radius: 12px;
     z-index: 2147483647;
     width: 280px;
   }
@@ -51,7 +51,7 @@
   .name {
     margin-left: 8px;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .close-button {
@@ -60,6 +60,6 @@
   }
 
   .prices {
-    padding: 6px 0;
+    padding: 8px 0;
   }
 </style>
