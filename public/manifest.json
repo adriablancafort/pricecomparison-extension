@@ -1,6 +1,7 @@
 {
-  "name": "Price Comparison - Find Lower Prices Instantly",
-  "description": "Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
