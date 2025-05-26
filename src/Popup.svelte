@@ -5,14 +5,15 @@
 
   let show = $state(true);
   
-  let logoUrl = import.meta.env.PROD ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
+  const logoUrl = import.meta.env.PROD ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
+  const popupTitle = import.meta.env.PROD ? chrome.i18n.getMessage("popupTitle") : "Better prices found!";
 </script>
 
 {#if show && data.prices.length > 0}
   <div class="popup slide-in">
     <div class="top">
       <img src={logoUrl} alt="Logo" width="24" height="24" />
-      <span class="name">Better prices found!</span>
+      <span class="title">{popupTitle}</span>
 
       <button class="close-button" onclick={() => show = false} aria-label="Close popup">
         <svg width="20px" height="20px" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +49,7 @@
     border-bottom: 1px solid #e5e5e5;
   }
 
-  .name {
+  .title {
     margin-left: 8px;
     font-weight: 700;
     font-size: 16px;

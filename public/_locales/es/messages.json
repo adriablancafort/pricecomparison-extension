@@ -4,5 +4,8 @@
     },
     "extensionDescription": {
         "message": "Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!"
+    },
+    "popupTitle": {
+        "message": "¡Mejores precios encontrados!"
     }
 }
