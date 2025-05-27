@@ -1,11 +1,11 @@
 {
     "extensionName": {
-        "message": "Comparador de Precios - Encuentra Precios Más Bajos al Instante"
+        "message": "Price Comparison - Find Lower Prices Instantly"
     },
     "extensionDescription": {
-        "message": "Ahorra Tiempo y Dinero — Compara Precios al Instante y Encuentra Mejores Ofertas de Otros Sitios Mientras Navegas!"
+        "message": "Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!"
     },
     "popupTitle": {
-        "message": "Better prices found!"
+        "message": "¡Mejores precios encontrados!"
     }
 }
